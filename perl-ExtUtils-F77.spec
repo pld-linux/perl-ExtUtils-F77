@@ -1,9 +1,12 @@
+%define	pdir	ExtUtils
+%define	pnam	F77
 %include	/usr/lib/rpm/macros.perl
 Summary:	ExtUtils-F77 perl module
 Summary(pl):	Modu³ perla ExtUtils-F77
 Name:		perl-ExtUtils-F77
 Version:	1.14
-Release:	2
+Release:	3
+
 License:	GPL
 Group:		Development/Languages/Perl
 Group(cs):	Vývojové prostøedky/Programovací jazyky/Perl
@@ -14,7 +17,7 @@ Group(ja):	³«È¯/¸À¸ì/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Group(pt):	Desenvolvimento/Linguagens/Perl
 Group(ru):	òÁÚÒÁÂÏÔËÁ/ñÚÙËÉ/Perl
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/ExtUtils/ExtUtils-F77-%{version}.tar.gz
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6
 Requires:	gcc-g77
