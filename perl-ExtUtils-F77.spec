@@ -25,7 +25,7 @@ ExtUtils::F77 - prosty interfejs do bibliotek F77.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make}
 
 %install
