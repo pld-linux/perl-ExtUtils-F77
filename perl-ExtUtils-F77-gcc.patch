@@ -1,0 +1,38 @@
+--- ExtUtils-F77-1.14/F77.pm.orig	2001-06-15 22:04:17.000000000 +0200
++++ ExtUtils-F77-1.14/F77.pm	2003-11-02 17:26:13.036832848 +0100
+@@ -137,19 +137,23 @@
+     my @libs = ('g2c', 'f2c');
+     my ($dir, $lib, $test);
+     foreach $test (@libs) {
+-      $dir = `g77 -print-file-name=lib$test.a`;
++      foreach $ext ('.so', '.a') {
++      $dir = `g77 -print-file-name=lib$test$ext`;
+       chomp $dir;
+       # Note that -print-file-name returns just the library name
+       # if it cant be found - make sure that we only accept the
+       # directory if it returns a proper path (or matches a /)
+-      if (defined $dir && $dir ne "lib$test.a") {
++      if (defined $dir && $dir ne "lib$test$ext") {
+         $lib = $test; # Found an existing library
+         last; 
+       }
++      }
++      last if (defined $lib);
+     }
+ 
+     if( defined $dir  && defined $lib) {
+-        $dir =~ s,/lib$lib.a$,,;
++        $dir =~ s,/lib$lib$ext$,,;
++	$dir = `cd $dir ; pwd`; # sanitize
+     } else {
+         $dir = "/usr/local/lib";
+         $lib = "f2c";
+@@ -158,7 +162,7 @@
+ };
+ $F77config{Generic}{G77}{Trail_} = 1;
+ $F77config{Generic}{G77}{Compiler} = find_in_path('g77','f77','fort77');
+-$F77config{Generic}{G77}{Cflags} = '-O';
++$F77config{Generic}{G77}{Cflags} = "$Config{'optimize'}";
+ $F77config{Generic}{DEFAULT} = 'G77';
+ $F77config{Generic}{F2c}     = $F77config{Generic}{G77};
+ 
