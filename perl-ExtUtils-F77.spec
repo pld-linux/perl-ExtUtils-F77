@@ -10,7 +10,8 @@ Summary(pl):	Modu³ Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
 Name:		perl-ExtUtils-F77
 Version:	1.14
 Release:	6
-License:	GPL
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	8b25d181fdedd3cdc6d5d26b9bf94d27
