@@ -3,7 +3,7 @@ Summary:	ExtUtils-F77 perl module
 Summary(pl):	Modu³ perla ExtUtils-F77
 Name:		perl-ExtUtils-F77
 Version:	1.14
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
@@ -12,6 +12,7 @@ Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/ExtUtils/ExtUtils-F77-%{v
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6
 Requires:	gcc-g77
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
