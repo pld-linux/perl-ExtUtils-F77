@@ -1,8 +1,8 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	ExtUtils
 %define	pnam	F77
-Summary:	ExtUtils-F77 perl module
-Summary(pl):	Modu³ perla ExtUtils-F77
+Summary:	ExtUtils::F77 perl module
+Summary(pl):	Modu³ perla ExtUtils::F77
 Name:		perl-ExtUtils-F77
 Version:	1.14
 Release:	4
@@ -16,10 +16,10 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ExtUtils-F77 - Simple interface to F77 libs.
+ExtUtils::F77 - Simple interface to F77 libs.
 
 %description -l pl
-ExtUtils-F77 - prosty interfejs do bibliotek F77.
+ExtUtils::F77 - prosty interfejs do bibliotek F77.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
