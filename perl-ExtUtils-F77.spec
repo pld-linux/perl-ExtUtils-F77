@@ -5,11 +5,11 @@ Summary:	ExtUtils::F77 perl module
 Summary(pl):	Modu³ perla ExtUtils::F77
 Name:		perl-ExtUtils-F77
 Version:	1.14
-Release:	4
+Release:	5
 License:	GPL
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl >= 5.6
 Requires:	gcc-g77
 BuildArch:	noarch
@@ -25,7 +25,8 @@ ExtUtils::F77 - prosty interfejs do bibliotek F77.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make}
 
 %install
@@ -39,5 +40,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGES
-%{perl_sitelib}/ExtUtils/F77.pm
+%{perl_vendorlib}/ExtUtils/F77.pm
 %{_mandir}/man3/*
