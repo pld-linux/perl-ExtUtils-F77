@@ -22,7 +22,7 @@
  
      if( defined $dir  && defined $lib) {
 -        $dir =~ s,/lib$lib.a$,,;
-+        $dir =~ s,/lib$lib$ext$,,;
++        $dir =~ s,/lib$lib\..*$,,;
 +	$dir = `cd $dir ; pwd`; # sanitize
      } else {
          $dir = "/usr/local/lib";
