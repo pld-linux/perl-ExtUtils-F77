@@ -3,8 +3,8 @@
 %bcond_without	tests	# don't perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	ExtUtils
-%define	pnam	F77
+%define		pdir	ExtUtils
+%define		pnam	F77
 Summary:	ExtUtils::F77 Perl module - simple interface to F77 libraries
 Summary(pl):	Modu³ Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
 Name:		perl-ExtUtils-F77
