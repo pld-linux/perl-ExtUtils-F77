@@ -27,7 +27,7 @@ ExtUtils::F77 - prosty interfejs do bibliotek F77.
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make}
 
 %install
