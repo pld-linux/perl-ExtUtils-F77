@@ -3,7 +3,7 @@ Summary:	ExtUtils-F77 perl module
 Summary(pl):	Modu³ perla ExtUtils-F77
 Name:		perl-ExtUtils-F77
 Version:	1.13
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
