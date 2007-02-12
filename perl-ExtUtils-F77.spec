@@ -6,7 +6,7 @@
 %define		pdir	ExtUtils
 %define		pnam	F77
 Summary:	ExtUtils::F77 Perl module - simple interface to F77 libraries
-Summary(pl):	Modu≥ Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
+Summary(pl.UTF-8):   Modu≈Ç Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
 Name:		perl-ExtUtils-F77
 Version:	1.14
 Release:	6
@@ -29,11 +29,11 @@ subroutines on your system. Basically one must add a list of Fortran
 runtime libraries. The problem is their location and name varies with
 each OS/compiler combination.
 
-%description -l pl
-Ten modu≥ prÛbuje odkryÊ, jak linkowaÊ programy w C z obecnymi w
+%description -l pl.UTF-8
+Ten modu≈Ç pr√≥buje odkryƒá, jak linkowaƒá programy w C z obecnymi w
 systemie procedurami Fortranu. Zasadniczo polega to na dodaniu listy
-fortranowych bibliotek uruchomieniowych. Problem tkwi w ich po≥oøeniu
-i rÛønych nazwach w zaleøno∂ci od kombinacji systemu operacyjnego i
+fortranowych bibliotek uruchomieniowych. Problem tkwi w ich po≈Ço≈ºeniu
+i r√≥≈ºnych nazwach w zale≈ºno≈õci od kombinacji systemu operacyjnego i
 kompilatora.
 
 %prep
