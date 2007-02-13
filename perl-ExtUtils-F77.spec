@@ -6,7 +6,7 @@
 %define		pdir	ExtUtils
 %define		pnam	F77
 Summary:	ExtUtils::F77 Perl module - simple interface to F77 libraries
-Summary(pl.UTF-8):   Moduł Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
+Summary(pl.UTF-8):	Moduł Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
 Name:		perl-ExtUtils-F77
 Version:	1.14
 Release:	6
