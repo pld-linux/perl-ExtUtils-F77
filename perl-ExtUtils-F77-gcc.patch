@@ -1,6 +1,6 @@
---- ExtUtils-F77-1.14/F77.pm.orig	2001-06-15 22:04:17.000000000 +0200
-+++ ExtUtils-F77-1.14/F77.pm	2003-11-02 17:26:13.036832848 +0100
-@@ -137,19 +137,23 @@
+--- ExtUtils-F77-1.16/F77.pm.orig	2007-04-02 06:40:23.000000000 +0200
++++ ExtUtils-F77-1.16/F77.pm	2008-03-28 10:20:31.965651075 +0100
+@@ -173,19 +173,23 @@
      my @libs = ('g2c', 'f2c');
      my ($dir, $lib, $test);
      foreach $test (@libs) {
@@ -27,7 +27,7 @@
      } else {
          $dir = "/usr/local/lib";
          $lib = "f2c";
-@@ -158,7 +162,7 @@
+@@ -194,7 +199,7 @@
  };
  $F77config{Generic}{G77}{Trail_} = 1;
  $F77config{Generic}{G77}{Compiler} = find_in_path('g77','f77','fort77');
