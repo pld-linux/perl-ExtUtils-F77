@@ -13,12 +13,13 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/ExtUtils/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	af925e7e8a2876a5fd9b6c4660e37664
 Patch0:		%{name}-gcc.patch
+URL:		http://search.cpan.org/dist/ExtUtils-F77/
+BuildRequires:	gcc-g77
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	gcc-g77
 Requires:	gcc-g77
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
