@@ -9,13 +9,14 @@ Summary:	ExtUtils::F77 Perl module - simple interface to F77 libraries
 Summary(pl.UTF-8):	Moduł Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
 Name:		perl-ExtUtils-F77
 Version:	1.16
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/ExtUtils/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	af925e7e8a2876a5fd9b6c4660e37664
 Patch0:		%{name}-gcc.patch
+Patch1:		%{name}-lib64.patch
 URL:		http://search.cpan.org/dist/ExtUtils-F77/
 BuildRequires:	gcc-g77
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -40,6 +41,7 @@ kompilatora.
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__perl} Makefile.PL \
