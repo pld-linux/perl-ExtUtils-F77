@@ -1,38 +1,50 @@
---- ExtUtils-F77-1.16/F77.pm.orig	2007-04-02 06:40:23.000000000 +0200
-+++ ExtUtils-F77-1.16/F77.pm	2008-03-28 10:20:31.965651075 +0100
-@@ -173,19 +173,23 @@
-     my @libs = ('g2c', 'f2c');
-     my ($dir, $lib, $test);
-     foreach $test (@libs) {
--      $dir = `g77 -print-file-name=lib$test.a`;
-+      foreach $ext ('.so', '.a') {
-+      $dir = `g77 -print-file-name=lib$test$ext`;
-       chomp $dir;
-       # Note that -print-file-name returns just the library name
-       # if it cant be found - make sure that we only accept the
-       # directory if it returns a proper path (or matches a /)
--      if (defined $dir && $dir ne "lib$test.a") {
-+      if (defined $dir && $dir ne "lib$test$ext") {
-         $lib = $test; # Found an existing library
-         last; 
-       }
-+      }
-+      last if (defined $lib);
-     }
+--- ExtUtils-F77-1.17/F77.pm.orig	2011-01-01 02:53:06.000000000 +0100
++++ ExtUtils-F77-1.17/F77.pm	2011-12-17 13:56:13.302842603 +0100
+@@ -255,7 +255,7 @@
+ ### Generic GNU-77 or F2C system ###
  
-     if( defined $dir  && defined $lib) {
+ $F77config{Generic}{GNU}{Trail_} = 1;
+-$F77config{Generic}{GNU}{Cflags} = ' ';        # <---need this space!
++$F77config{Generic}{GNU}{Cflags} = "$Config{'optimize'}";
+ $F77config{Generic}{GNU}{Link}   = link_gnufortran_compiler('g77', 'gfortran', 'g95', 'fort77');    
+ $F77config{Generic}{GNU}{Compiler} = find_in_path('g77', "$gfortran", 'g95','fort77');
+ $F77config{Generic}{DEFAULT}     = 'GNU';
+@@ -587,7 +587,7 @@
+    # Create list of directories to search (with common defaults)
+ 
+    my @path = ();     
+-   for (@args, "/usr/lib", "/lib") { 
++   for (@args, "/usr/lib64", "/lib64", "/usr/lib", "/lib") { 
+       push @path, $1 if /^-L(.+)$/ && -d $1;
+    }
+ 
+@@ -717,21 +717,25 @@
+     my @libs = @{$complibs{$compiler}};
+      my ($dir, $lib, $test);
+      foreach $test (@libs) {
+-      $dir = `$compiler -print-file-name=lib$test.a`;
++     foreach $ext ('.so', '.a') {
++      $dir = `$compiler -print-file-name=lib$test$ext`;
+        chomp $dir;
+        # Note that -print-file-name returns just the library name
+        # if it cant be found - make sure that we only accept the
+        # directory if it returns a proper path (or matches a /)
+-       if (defined $dir && $dir ne "lib$test.a") {
++       if (defined $dir && $dir ne "lib$test$ext") {
+         $lib = $test; # Found an existing library
 -        $dir =~ s,/lib$lib.a$,,;
-+        $dir =~ s,/lib$lib\..*$,,;
-+	$dir = `cd $dir ; pwd`; # sanitize
-     } else {
-         $dir = "/usr/local/lib";
-         $lib = "f2c";
-@@ -194,7 +199,7 @@
- };
- $F77config{Generic}{G77}{Trail_} = 1;
- $F77config{Generic}{G77}{Compiler} = find_in_path('g77','f77','fort77');
--$F77config{Generic}{G77}{Cflags} = '-O';
-+$F77config{Generic}{G77}{Cflags} = "$Config{'optimize'}";
- $F77config{Generic}{DEFAULT} = 'G77';
- $F77config{Generic}{F2c}     = $F77config{Generic}{G77};
++        $dir =~ s,/lib$lib$ext$,,;
++	$dir = `cd $dir ; pwd | tr -d '\n'`; # sanitize
+         last;
+      } else {
+          $dir = "/usr/local/lib";
+          $lib = "f2c";
+     }
+     }
+-     return( "-L$dir -L/usr/lib -l$lib -lm" );
++    last if defined($lib);
++    }
++     return( "-L$dir -l$lib -lm" );
+ }
+ 
  

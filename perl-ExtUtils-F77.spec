@@ -8,20 +8,19 @@
 Summary:	ExtUtils::F77 Perl module - simple interface to F77 libraries
 Summary(pl.UTF-8):	Moduł Perla ExtUtils::F77 - prosty interfejs do bibliotek F77
 Name:		perl-ExtUtils-F77
-Version:	1.16
-Release:	2
+Version:	1.17
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/ExtUtils/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	af925e7e8a2876a5fd9b6c4660e37664
+# Source0-md5:	c0143b5342587ed2ee5db3f6cfb9cc13
 Patch0:		%{name}-gcc.patch
-Patch1:		%{name}-lib64.patch
 URL:		http://search.cpan.org/dist/ExtUtils-F77/
-BuildRequires:	gcc-g77
+BuildRequires:	gcc-fortran
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-Requires:	gcc-g77
+Requires:	gcc-fortran
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,7 +40,6 @@ kompilatora.
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__perl} Makefile.PL \
@@ -63,4 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES
 %{perl_vendorlib}/ExtUtils/F77.pm
-%{_mandir}/man3/*
+%{_mandir}/man3/ExtUtils::F77.3pm*
