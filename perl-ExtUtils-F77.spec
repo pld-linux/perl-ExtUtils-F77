@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# don't perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	ExtUtils
 %define		pnam	F77
 Summary:	ExtUtils::F77 Perl module - simple interface to F77 libraries
